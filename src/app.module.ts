@@ -4,9 +4,11 @@ import { CorrelationMiddleware } from './common/middleware/correlation.middlewar
 import { DeviceModule } from './device/device.module';
 import { APP_GUARD } from '@nestjs/core';
 import { DeviceContextGuard } from './common/guards/device-context.guard';
+import { TelemetryModule } from './telemetry/telemetry.module';
+import { AckModule } from './ack/ack.module';
 
 @Module({
-  imports: [AlsModule, DeviceModule],
+  imports: [AlsModule, DeviceModule, TelemetryModule, AckModule],
   providers: [{ provide: APP_GUARD, useClass: DeviceContextGuard }],
 })
 export class AppModule implements NestModule {
