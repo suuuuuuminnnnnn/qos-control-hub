@@ -40,7 +40,7 @@ async function bootstrap(): Promise<void> {
 }
 
 function registerPreRequestHook(
-  microservice: { serverInstance?: unknown },
+  microservice: unknown,
   hook: PreRequestHook,
 ): void {
   const server = (microservice as { serverInstance: ServerWithHook })
